@@ -10,7 +10,7 @@ Controls: Appendix at the end of the .pdf file
 In this project, I used Computer Graphics theory and 3D Matrix Transformations to tackle the problems of:
   1. Portal image generation, including the problem of "recursive" Portals (eg. the "infinite corridor" illusion)
   2. "Smooth" object mesh teleportation, with a personal re-implementation of the same idea used in the Portal Valve studio games
-  3. Portal "Physics" and collisions in 3 dimensions
+  3. Portal "Physics" and collisions in 3D
 
 The game was developed from low level, meaning we explicitly deal with movement and collision detection algorithms, but also lighting and shading schemes with GPU shader programming
 
