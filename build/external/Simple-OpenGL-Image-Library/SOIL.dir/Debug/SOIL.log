@@ -1,0 +1,18 @@
+﻿  Building Custom Rule C:/Users/giwrg/Desktop/lab/external/Simple-OpenGL-Image-Library/CMakeLists.txt
+  SOIL.c
+  image_DXT.c
+  image_helper.c
+  stb_image_aug.c
+C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\src\image_helper.c(291,1): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\src\image_helper.c(326,63): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\src\image_helper.c(333,53): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\src\image_helper.c(371,63): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\src\image_helper.c(378,67): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\include\stbi_DDS_aug_c.h(336,31): warning C4018: '>': signed/unsigned mismatch (compiling source file C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\src\stb_image_aug.c)
+C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\include\stbi_DDS_aug_c.h(339,31): warning C4018: '>': signed/unsigned mismatch (compiling source file C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\src\stb_image_aug.c)
+C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\include\stbi_DDS_aug_c.h(357,31): warning C4018: '<': signed/unsigned mismatch (compiling source file C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\src\stb_image_aug.c)
+C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\include\stbi_DDS_aug_c.h(387,31): warning C4018: '<': signed/unsigned mismatch (compiling source file C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\src\stb_image_aug.c)
+C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\src\SOIL.c(1545,42): warning C4018: '<=': signed/unsigned mismatch
+C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\src\SOIL.c(1553,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\giwrg\Desktop\lab\external\Simple-OpenGL-Image-Library\src\SOIL.c(1672,59): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+  SOIL.vcxproj -> C:\Users\giwrg\Desktop\lab\build\external\Simple-OpenGL-Image-Library\Debug\SOIL_d.lib

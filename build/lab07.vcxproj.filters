@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\lab07\lab.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\lab07\RigidBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\lab07\Cube.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\lab07\Sphere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\lab07\Box.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\lab07\Collision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\lab07\Portal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\lab07\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\lab07\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\common\util.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\common\shader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\common\camera.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\common\model.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\common\texture.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\giwrg\Desktop\lab\lighting\light.cpp">
+      <Filter>lighting</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\lab07\RigidBody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\lab07\Cube.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\lab07\Sphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\lab07\Box.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\lab07\Collision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\lab07\Portal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\lab07\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\lab07\Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\common\util.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\common\shader.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\common\camera.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\common\model.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\common\texture.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\giwrg\Desktop\lab\lighting\light.h">
+      <Filter>lighting</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\giwrg\Desktop\lab\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\giwrg\Desktop\lab\lab07\StandardShading.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\giwrg\Desktop\lab\lab07\StandardShading.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\giwrg\Desktop\lab\lab07\Depth.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\giwrg\Desktop\lab\lab07\Depth.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{BB278B11-B2C0-3299-8D99-751492823C3E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{8D49AEAB-DBD7-30D2-BD53-61BA9FF2DDA8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{66395FD7-23DD-3552-BB4D-EAE91CB7C896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lighting">
+      <UniqueIdentifier>{7544EDD8-66F4-3373-8D6F-187AB679E5EA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{9AE14D5E-0B06-3018-B49F-5FFCB2458264}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

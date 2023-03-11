@@ -1,0 +1,199 @@
+#version 330 core
+
+// Interpolated values from the vertex shaders
+in vec3 vertex_position_worldspace;
+in vec3 vertex_position_cameraspace;
+in vec3 vertex_normal_cameraspace;
+in vec2 vertex_UV;
+in vec4 vertex_position_lightspace;
+
+uniform int useTexture = 0;
+uniform sampler2D diffuseColorSampler;
+uniform sampler2D specularColorSampler;
+uniform sampler2D shadowMapSampler;
+uniform sampler2D textureSampler;
+uniform mat4 V;
+uniform float time;
+
+// Phong
+// light properties
+struct Light {
+    vec3 lightPosition_worldspace;
+    float power;
+};
+uniform Light light = Light(
+    vec3(16.0f, 20.0f, 0.0f),
+    400.0f
+);
+
+vec4 La=vec4(1,1,1,1);
+vec4 Ld=vec4(1,1,1,1);
+vec4 Ls=vec4(1,1,1,1);
+
+
+// materials
+struct Material {
+    vec4 Ka;
+    vec4 Kd;
+    vec4 Ks;
+    float Ns;
+};
+
+//gold material properties
+uniform Material mtl = Material(
+    vec4(0.24725, 0.1995, 0.0745, 1),
+    vec4(0.75164, 0.60648, 0.22648, 1),
+    vec4(0.628281, 0.555802, 0.366065, 1),
+    51.2f
+);
+
+// Output data
+out vec4 fragmentColor;
+
+void phong();
+void renderBluePortalTexture();
+void renderStaticTexture();
+void renderSkybox(); //no shadows from other scene objects applied
+void ShadowCalculations();
+void renderGoldTrophy();
+
+float shadow,visibility;
+
+void main() {  
+
+    
+    if(useTexture!=4) ShadowCalculations();
+
+    visibility=1.0f-shadow;
+
+    if(useTexture==0)
+    phong();
+    else if(useTexture==1)
+    renderBluePortalTexture();
+    else if(useTexture==2)
+    renderStaticTexture();
+    else if(useTexture==3)
+    renderSkybox();
+    else if(useTexture==4)
+    {
+        visibility=1.0f;
+        phong();
+    }
+}
+
+void ShadowCalculations(){
+
+    vec3 projCoords = vertex_position_lightspace.xyz/vertex_position_lightspace.w;
+
+
+    projCoords = projCoords*0.5+0.5;
+
+    float closestDepth = texture(shadowMapSampler,projCoords.xy).r;
+
+
+    float currentDepth = projCoords.z;
+
+
+    float bias = 0.005f;
+     shadow = currentDepth-bias>closestDepth? 1.0f:0.0f;
+             
+    // Task 4.7 Make the shadow edges more realistic
+    //*/
+    shadow = 0.0f;
+    vec2 depthMap_dimensions = textureSize(shadowMapSampler, 0);
+    vec2 texelSize = 1.0f / depthMap_dimensions;
+    for(int x = -1; x <= 1; x++ ){
+        for(int y = -1; y <= 1; y++ ){
+            float pcfDepth = texture(shadowMapSampler, projCoords.xy + vec2(x, y) * texelSize).r;
+            shadow += currentDepth - bias > pcfDepth ? 1.0f : 0.0f; 
+        }
+    }
+    shadow /= 9.0f;
+    //*/
+
+
+    // Task 4.5
+    /*/
+    if(projCoords.z > 1.0)
+        shadow = 0.0;
+    //*/
+
+
+    return;
+}
+
+
+void phong() {
+    vec4 _Ks = mtl.Ks;
+    vec4 _Kd = mtl.Kd;
+    vec4 _Ka = mtl.Ka;
+    float _Ns = mtl.Ns;
+    // use texture for materials
+    
+
+    // model ambient intensity (Ia)
+    vec4 Ia = La * _Ka;
+
+    // model diffuse intensity (Id)
+    vec3 N = normalize(vertex_normal_cameraspace);
+    vec3 L = normalize((V * vec4(light.lightPosition_worldspace, 1)).xyz
+        - vertex_position_cameraspace);
+    float cosTheta = clamp(dot(L, N), 0, 1);
+    vec4 Id = Ld * _Kd * cosTheta;
+
+    // model specular intensity (Is)
+    vec3 R = reflect(-L, N);
+    vec3 E = normalize(- vertex_position_cameraspace);
+    float cosAlpha = clamp(dot(E, R), 0, 1);
+    float specular_factor = pow(cosAlpha, _Ns);
+    vec4 Is = Ls * _Ks * specular_factor;
+
+    //model the light distance effect
+    float distance = length(light.lightPosition_worldspace
+        - vertex_position_worldspace);
+    float distance_sq = distance * distance;
+
+    // final fragment color
+    fragmentColor = vec4(
+        Ia +
+        visibility * Id * light.power / distance_sq +
+        visibility * Is * light.power / distance_sq);
+
+}
+
+void renderBluePortalTexture() {
+        float freq=0.1f;
+        mat3 rotateUVs=mat3(
+        cos(freq*time),-sin(freq*time),0.0f,
+        sin(freq*time),cos(freq*time),0.0f,
+        0.0f,0.0f,1.0f); //xrisimopoiw matrix transform gia na peristrepsw ta uv coordinates
+        vec2 rotatingUVs=vec2((rotateUVs*vec3(vertex_UV,1.0f)).x,(rotateUVs*vec3(vertex_UV,1.0f)).y);
+
+        fragmentColor= vec4(texture(textureSampler,rotatingUVs).rgb,1.0);
+}
+
+void renderStaticTexture() {
+
+    vec4 color=vec4(texture(textureSampler,vertex_UV).rgb,1.0);
+
+    vec4 Ia=0.7*La;
+
+    vec3 N = normalize(vertex_normal_cameraspace);
+    vec3 L = normalize((V * vec4(light.lightPosition_worldspace, 1)).xyz
+        - vertex_position_cameraspace);
+    float cosTheta = clamp(dot(L, N), 0, 1);
+    vec4 Id=Ld*cosTheta;
+
+    vec3 R = reflect(-L, N);
+    vec3 E = normalize(- vertex_position_cameraspace);
+    float cosAlpha = clamp(dot(E, R), 0, 1);
+    float specular_factor = pow(cosAlpha, 51); //tixaio Ns dokimastika
+    vec4 Is = Ls * specular_factor;
+
+    fragmentColor= (Ia+0.3*visibility*(Id+Is))*color;
+}
+
+void renderSkybox()
+{
+    fragmentColor=vec4(texture(textureSampler,vertex_UV).rgb,1.0);
+}

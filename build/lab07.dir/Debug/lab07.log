@@ -1,0 +1,6 @@
+﻿  lab.cpp
+C:\Users\giwrg\Desktop\lab\lab07\lab.cpp(399,42): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\giwrg\Desktop\lab\lab07\lab.cpp(606,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\giwrg\Desktop\lab\lab07\lab.cpp(619,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\giwrg\Desktop\lab\lab07\lab.cpp(717,95): warning C4305: 'argument': truncation from 'double' to 'float'
+  lab07.vcxproj -> C:\Users\giwrg\Desktop\lab\build\Debug\lab07.exe
