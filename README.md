@@ -1,5 +1,5 @@
 # Portal_Game
-A 3D game with Portals (like the popular Valve games) developed using the C++ OpenGL module. This game was a 6-month project for the "Computer Graphics and Virtual Reality" course, Faculty of Electrical Engineering and Computer Science, University of Patras.
+A 3D game with Portals (like the popular Valve games) developed using the C++ OpenGL module. This game was a 6-month project for the "Computer Graphics and Virtual Reality" course, Faculty of Electrical Computer Engineering and , University of Patras.
 
 To start: run the lab07.exe file or open the .sln file to open the Virtual Studio project
 
